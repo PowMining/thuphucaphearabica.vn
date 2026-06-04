@@ -73,6 +73,7 @@
             justify-content: space-between;
             align-items: center;
             padding: 15px 0;
+            flex-wrap: wrap; /* Cho phép rớt dòng nếu chật */
         }
 
         .logo {
@@ -101,6 +102,9 @@
             font-weight: 600;
             font-size: 0.95rem;
             transition: var(--transition);
+            white-space: nowrap; /* CHỐNG RỚT DÒNG ĐÈ CHỮ */
+            display: inline-block;
+            padding: 5px 0;
         }
 
         .nav-links a:hover {
@@ -120,7 +124,6 @@
             overflow: hidden;
         }
 
-        /* Decorative Mountain Wave using SVG */
         .hero::after {
             content: '';
             position: absolute;
@@ -561,10 +564,11 @@
         }
 
         /* =========================================
-           MOBILE RESPONSIVE TỐI ƯU (MAX 768PX)
+           MOBILE RESPONSIVE TỐI ƯU (MAX 992PX & 768PX)
            ========================================= */
-        @media (max-width: 768px) {
-            /* Header */
+        
+        /* Bắt đầu bẻ giao diện Navbar từ màn hình iPad/Tablet (992px) để không bị chật */
+        @media (max-width: 992px) {
             .navbar {
                 flex-direction: column;
                 gap: 15px;
@@ -574,8 +578,11 @@
                 flex-wrap: wrap;
                 justify-content: center;
                 gap: 12px 20px;
+                width: 100%;
             }
-            
+        }
+
+        @media (max-width: 768px) {
             /* Hero */
             .hero {
                 padding: 80px 0 100px 0;
