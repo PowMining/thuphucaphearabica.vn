@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sơn La - Thủ Phủ Cà Phê Arabica Việt Nam</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Sử dụng Montserrat cho toàn trang và Dancing Script cho khẩu hiệu thư pháp -->
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;600;700&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1b5e20;
+            --primary-light: #e8f5e9;
+            --secondary: #4e342e;
+            --secondary-light: #efebe9;
+            --accent: #d4af37;
+            --accent-dark: #b89223;
+            --bg: #faf7f2;
+            --card-bg: #ffffff;
+            --text: #2c2520;
+            --text-muted: #6d5d54;
+            --shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        /* Đồng bộ Tiêu đề sang Montserrat, In đậm và Viết hoa */
+        h1, h2, h3, h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+        }
+
+        /* Font Thư Pháp cho Khẩu hiệu */
+        .slogan-text {
+            font-family: 'Dancing Script', cursive;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: var(--secondary);
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, rgba(27, 94, 32, 0.9), rgba(78, 52, 46, 0.85)), 
+                        radial-gradient(circle at center, transparent, rgba(0,0,0,0.3));
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 100px 0 120px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Decorative Mountain Wave using SVG */
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 60px;
+            background: var(--bg);
+            clip-path: polygon(0% 100%, 100% 100%, 100% 40%, 85% 75%, 70% 30%, 55% 65%, 40% 20%, 25% 70%, 10% 40%, 0% 80%);
+        }
+
+        .hero-badge {
+            background-color: var(--accent);
+            color: var(--secondary);
+            display: inline-block;
+            padding: 6px 18px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+            line-height: 1.3;
+            letter-spacing: -0.5px;
+        }
+
+        .hero p.subtitle {
+            font-size: 2.4rem; /* Cỡ chữ lớn cho font thư pháp */
+            max-width: 800px;
+            margin: 0 auto 30px auto;
+            color: var(--primary-light);
+        }
+
+        .slogan-box {
+            background: rgba(255, 255, 255, 0.15);
+            border-left: 4px solid var(--accent);
+            backdrop-filter: blur(5px);
+            padding: 15px 30px;
+            max-width: 800px;
+            margin: 0 auto;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .slogan-box p {
+            font-size: 1.8rem;
+            line-height: 1.4;
+            color: #fff;
+        }
+
+        /* Stats Section */
+        .stats {
+            margin-top: -50px;
+            position: relative;
+            z-index: 10;
+            margin-bottom: 60px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .stat-card {
+            background: var(--card-bg);
+            padding: 35px 30px;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            text-align: center;
+            border-bottom: 4px solid transparent;
+            transition: var(--transition);
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            border-bottom-color: var(--primary);
+        }
+
+        .stat-num {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 10px;
+            line-height: 1;
+        }
+
+        .stat-title {
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--secondary);
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+
+        .stat-desc {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+        }
+
+        /* Section Styling */
+        section {
+            padding: 60px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 50px auto;
+        }
+
+        .section-header h2 {
+            font-size: 2.2rem;
+            color: var(--secondary);
+            margin-bottom: 15px;
+            position: relative;
+            padding-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        .section-header h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background-color: var(--accent);
+            border-radius: 2px;
+        }
+
+        .section-header p {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+        }
+
+        /* Journey / Process Section */
+        .journey-timeline {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            position: relative;
+        }
+
+        .journey-step {
+            background: var(--card-bg);
+            padding: 30px 20px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            text-align: center;
+            position: relative;
+            transition: var(--transition);
+        }
+
+        .journey-step:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        .step-num {
+            width: 45px;
+            height: 45px;
+            background: var(--primary-light);
+            color: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            margin: 0 auto 20px auto;
+            transition: var(--transition);
+        }
+
+        .journey-step:hover .step-num {
+            background: var(--accent);
+            color: var(--secondary);
+        }
+
+        .journey-step h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .journey-step p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            transition: var(--transition);
+        }
+
+        .journey-step:hover p {
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        /* Matrix / Challenges Section */
+        .matrix-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 30px;
+        }
+
+        .matrix-card {
+            background: var(--card-bg);
+            border-radius: 14px;
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .matrix-card-header {
+            padding: 25px 30px;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .matrix-card.eudr .matrix-card-header { background: #2e7d32; }
+        .matrix-card.soil .matrix-card-header { background: #795548; }
+        .matrix-card.climate .matrix-card-header { background: #0288d1; }
+
+        .matrix-card-header h3 {
+            font-size: 1.3rem;
+            letter-spacing: 0.5px;
+        }
+
+        .matrix-tag {
+            font-size: 0.8rem;
+            font-weight: 700;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 4px 10px;
+            border-radius: 4px;
+            text-transform: uppercase;
+        }
+
+        .matrix-body {
+            padding: 30px;
+            flex-grow: 1;
+        }
+
+        .matrix-section {
+            margin-bottom: 20px;
+        }
+
+        .matrix-section:last-child {
+            margin-bottom: 0;
+        }
+
+        .matrix-label {
+            font-size: 0.85rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .matrix-card.eudr .matrix-label { color: #2e7d32; }
+        .matrix-card.soil .matrix-label { color: #795548; }
+        .matrix-card.climate .matrix-label { color: #0288d1; }
+
+        .matrix-list {
+            list-style: none;
+        }
+
+        .matrix-list li {
+            font-size: 0.95rem;
+            margin-bottom: 8px;
+            position: relative;
+            padding-left: 15px;
+            color: var(--text);
+        }
+
+        .matrix-list li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        .matrix-card.eudr .matrix-list li::before { color: #2e7d32; }
+        .matrix-card.soil .matrix-list li::before { color: #795548; }
+        .matrix-card.climate .matrix-list li::before { color: #0288d1; }
+
+
+        /* Ecosystem & Partners */
+        .ecosystem {
+            background-color: var(--primary-light);
+        }
+
+        .eco-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        @media (max-width: 768px) {
+            .eco-grid { grid-template-columns: 1fr; }
+        }
+
+        .eco-content h3 {
+            font-size: 1.8rem;
+            color: var(--secondary);
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .eco-content p {
+            margin-bottom: 20px;
+            color: var(--text-muted);
+        }
+
+        .partner-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 25px;
+        }
+
+        .partner-badge {
+            background: white;
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            color: var(--secondary);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .cert-cards {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .cert-card {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+        }
+
+        .cert-card h4 {
+            color: var(--primary);
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+
+        .cert-card p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin: 0;
+        }
+
+        /* CTA / Contact Section */
+        .contact-section {
+            background: var(--secondary);
+            color: white;
+            text-align: center;
+            padding: 8px 0;
+        }
+
+        .contact-box {
+            background: linear-gradient(135deg, #3e2723, #2d1a12);
+            padding: 60px 40px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        .contact-box h2 {
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+            color: var(--accent);
+        }
+
+        .contact-box p {
+            max-width: 600px;
+            margin: 0 auto 35px auto;
+            opacity: 0.85;
+            font-size: 1.05rem;
+        }
+
+        .contact-details {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+
+        .contact-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .contact-item span.label {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        .contact-item a, .contact-item span.val {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: white;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .contact-item a:hover {
+            color: var(--accent);
+        }
+
+        /* Footer */
+        footer {
+            background: #1e130f;
+            color: #a1887f;
+            padding: 30px 0;
+            text-align: center;
+            font-size: 0.9rem;
+            border-top: 1px solid #3e2723;
+        }
+
+        footer p {
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header / Nav -->
+    <header>
+        <div class="container navbar">
+            <a href="#" class="logo">SƠN LA<span>.ARABICA</span></a>
+            <ul class="nav-links">
+                <li><a href="#tong-quan">Tổng Quan</a></li>
+                <li><a href="#hanh-trinh">Hành Trình</a></li>
+                <li><a href="#co-hoi-thach-thuc">Cơ Hội & Thách Thức</a></li>
+                <li><a href="#he-sinh-thai">Hệ Sinh Thái</a></li>
+                <li><a href="#lien-he">Liên Hệ</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <span class="hero-badge">Chỉ dẫn địa lý từ 2017</span>
+            <h1>SƠN LA - THỦ PHỦ CÀ PHÊ ARABICA VIỆT NAM</h1>
+            
+            <!-- Chuyển sang Slogan Thư Pháp chữ thường để dễ đọc -->
+            <p class="subtitle slogan-text">Hương Sắc Cà Phê Arabica - Chào Mừng Công Dân Thủ Phủ Cà Phê Bền Vững</p>
+            
+            <div class="slogan-box">
+                <p class="slogan-text">"Mỗi công dân là một đại sứ - Mỗi hành động là một giá trị - Mỗi hạt cà phê niềm tự hào Sơn La"</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Thống kê sản lượng -->
+    <section id="tong-quan" class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-num">~33,600 Ha</div>
+                    <div class="stat-title">Diện Tích Trồng</div>
+                    <div class="stat-desc">Vùng trồng cà phê Arabica trải rộng trên toàn tỉnh Sơn La.</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-num">35k - 50k Tấn</div>
+                    <div class="stat-title">Sản Lượng Hàng Năm</div>
+                    <div class="stat-desc">Đóng góp nguồn cung lớn, chất lượng cao ổn định ổn định cho thị trường quốc tế.</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-num">&gt;60%</div>
+                    <div class="stat-title">Thị Phần Quốc Gia</div>
+                    <div class="stat-desc">Chiếm phần lớn sản lượng xuất khẩu Arabica của toàn Việt Nam.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Thành tựu định hướng -->
+    <section>
+        <div class="container">
+            <div class="section-header">
+                <h2>Thành Tựu & Định Hướng Phát Triển</h2>
+                <p>Khẳng định vị thế trên bản đồ cà phê đặc sản thế giới</p>
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px;">
+                <div class="cert-card" style="border-top: 4px solid var(--accent);">
+                    <h4>Xuất Khẩu Toàn Cầu</h4>
+                    <p>Sản phẩm xuất khẩu chính thức tới hơn 20 quốc gia và vùng lãnh thổ, chinh phục các thị trường khó tính nhất.</p>
+                </div>
+                <div class="cert-card" style="border-top: 4px solid var(--accent);">
+                    <h4>Giải Thưởng Uy Tín</h4>
+                    <p>Đạt nhiều giải thưởng danh giá trong nước và quốc tế nhờ chất lượng hương vị nguyên chất, đặc trưng vùng cao tây bắc.</p>
+                </div>
+                <div class="cert-card" style="border-top: 4px solid var(--accent);">
+                    <h4>Nâng Tầm Vị Thế</h4>
+                    <p>Phát triển vững chắc và nâng tầm chỉ dẫn địa lý Cà phê Sơn La trở thành thương hiệu quốc gia vững mạnh.</p>
+                </div>
+                <div class="cert-card" style="border-top: 4px solid var(--accent);">
+                    <h4>Chế Biến Sâu</h4>
+                    <p>Phấn đấu trở thành trung tâm chế biến sâu và xuất khẩu cà phê hàng đầu toàn khu vực Đông Nam Á.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quy trình sản xuất -->
+    <section id="hanh-trinh" style="background-color: #fff;">
+        <div class="container">
+            <div class="section-header">
+                <h2>Quy Trình Khép Kín Hoàn Hảo</h2>
+                <p>Quy trình kiểm soát nghiêm ngặt đem đến ly cà phê đặc sản nguyên chất K COFFEE</p>
+            </div>
+            <div class="journey-timeline">
+                <div class="journey-step">
+                    <div class="step-num">01</div>
+                    <h3>Trồng Trọt</h3>
+                    <p>Chăm sóc theo các tiêu chuẩn quốc tế nghiêm ngặt như Rainforest Alliance (RA) và 4C.</p>
+                </div>
+                <div class="journey-step">
+                    <div class="step-num">02</div>
+                    <h3>Thu Hoạch</h3>
+                    <p>Quá trình thu hoạch thủ công, hái chọn lọc và đảm bảo tỷ lệ hái chín tối đa.</p>
+                </div>
+                <div class="journey-step">
+                    <div class="step-num">03</div>
+                    <h3>Chế Biến</h3>
+                    <p>Ứng dụng hệ thống dây chuyền công nghệ sản xuất hiện đại nhập khẩu từ Colombia.</p>
+                </div>
+                <div class="journey-step">
+                    <div class="step-num">04</div>
+                    <h3>Rang Xay</h3>
+                    <p>Kiểm soát nghiêm ngặt từng mẻ rang, tinh chỉnh các thông số nhiệt độ, lưu lượng gió kỹ lưỡng.</p>
+                </div>
+                <div class="journey-step">
+                    <div class="step-num">05</div>
+                    <h3>Thưởng Thức</h3>
+                    <p>Đem lại trải nghiệm trọn vẹn tinh tế từ hương thơm nồng nàn đến hậu vị ngọt sâu lắng.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ma trận cơ hội thách thức -->
+    <section id="co-hoi-thach-thuc">
+        <div class="container">
+            <div class="section-header">
+                <h2>Cơ Hội & Thách Thức</h2>
+                <p>Giải pháp bền vững ứng phó với các quy chuẩn toàn cầu và biến động môi trường</p>
+            </div>
+            
+            <div class="matrix-grid">
+                <!-- EUDR -->
+                <div class="matrix-card eudr">
+                    <div class="matrix-card-header">
+                        <h3>QUY ĐỊNH EUDR</h3>
+                        <span class="matrix-tag">Phát triển bền vững</span>
+                    </div>
+                    <div class="matrix-body">
+                        <div class="matrix-section">
+                            <div class="matrix-label">⚠️ Thách Thức</div>
+                            <ul class="matrix-list">
+                                <li>Yêu cầu nghiêm ngặt về truy xuất nguồn gốc sản phẩm.</li>
+                                <li>Cam kết và chứng nhận nguồn gốc không gây phá rừng.</li>
+                                <li>Phải xây dựng và quản lý chuỗi cung ứng minh bạch.</li>
+                            </ul>
+                        </div>
+                        <div class="matrix-section" style="margin-top: 25px;">
+                            <div class="matrix-label">✨ Cơ Hội</div>
+                            <ul class="matrix-list">
+                                <li>Bảo vệ và phát triển đa dạng sinh học bản địa.</li>
+                                <li>Góp phần bảo tồn hiệu quả hệ sinh thái rừng tự nhiên.</li>
+                                <li>Nâng tầm giá trị thương hiệu và vị thế Cà phê Sơn La.</li>
+                                <li>Thúc đẩy quá trình canh tác bền vững chuẩn quốc tế.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Đất -->
+                <div class="matrix-card soil">
+                    <div class="matrix-card-header">
+                        <h3>SỨC KHỎE ĐẤT</h3>
+                        <span class="matrix-tag">Thổ nhưỡng</span>
+                    </div>
+                    <div class="matrix-body">
+                        <div class="matrix-section">
+                            <div class="matrix-label">📉 Tình Trạng</div>
+                            <ul class="matrix-list">
+                                <li>Đất dốc dễ bị rửa trôi, xói mòn mạnh do mưa lớn.</li>
+                                <li>Hiện trạng mất cân bằng nghiêm trọng hệ vi sinh vật đất.</li>
+                                <li>Hệ quả của lạm dụng thuốc hóa học và phân bón vô cơ.</li>
+                            </ul>
+                        </div>
+                        <div class="matrix-section" style="margin-top: 25px;">
+                            <div class="matrix-label">🌱 Giải Pháp</div>
+                            <ul class="matrix-list">
+                                <li>Chuyển đổi toàn diện sang quy trình canh tác hữu cơ.</li>
+                                <li>Trồng cây che bóng tầng cao, thực hiện xen canh hợp lý.</li>
+                                <li>Tăng cường sử dụng phân bón hữu cơ giàu vi sinh có lợi.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Khí hậu -->
+                <div class="matrix-card climate">
+                    <div class="matrix-card-header">
+                        <h3>BIẾN ĐỔI KHÍ HẬU</h3>
+                        <span class="matrix-tag">Môi trường</span>
+                    </div>
+                    <div class="matrix-body">
+                        <div class="matrix-section">
+                            <div class="matrix-label">🌧️ Tác Động</div>
+                            <ul class="matrix-list">
+                                <li>Nhiệt độ thay đổi, thời tiết diễn biến thất thường.</li>
+                                <li>Thiên tai sương muối, rét đậm kéo dài kết hợp hạn hán.</li>
+                                <li>Nguy cơ bùng phát nhiều dịch sâu bệnh hại cây trồng.</li>
+                            </ul>
+                        </div>
+                        <div class="matrix-section" style="margin-top: 25px;">
+                            <div class="matrix-label">🛠️ Chiến Lược</div>
+                            <ul class="matrix-list">
+                                <li>Tối ưu hóa công tác quản lý tài nguyên nước, tưới tiêu.</li>
+                                <li>Đẩy mạnh hoạt động nghiên cứu ứng dụng giống mới thích ứng.</li>
+                                <li>Phát triển hệ thống cây che bóng giúp điều hòa vi khí hậu.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hệ sinh thái liên kết -->
+    <section id="he-sinh-thai" class="ecosystem">
+        <div class="container eco-grid">
+            <div class="eco-content">
+                <h3>Hệ Sinh Thái Liên Kết Bền Vững</h3>
+                <p>Hạt nhân phát triển chuỗi giá trị là <strong>Công ty Cổ phần Phúc Sinh Sơn La</strong> kết hợp chặt chẽ cùng cộng đồng học thuật như <strong>Trường Đại học Tây Bắc</strong> nhằm tạo ra động lực tăng trưởng bền vững toàn diện, xây dựng thế hệ "Công dân Thủ phủ Cà phê Arabica".</p>
+                <p>Mô hình tăng trưởng tích hợp các cam kết ESG (Môi trường - Xã hội - Quản trị) vào sản xuất kinh doanh nhằm đáp ứng những tiêu chuẩn xuất khẩu khắt khe nhất thế giới.</p>
+                <div class="partner-tags">
+                    <span class="partner-badge">Tập đoàn Phúc Sinh (Xuất khẩu 120 quốc gia)</span>
+                    <span class="partner-badge">Trường Đại học Tây Bắc</span>
+                    <span class="partner-badge">Hương Sắc Cà Phê Arabica</span>
+                </div>
+            </div>
+            <div class="cert-cards">
+                <div class="cert-card">
+                    <h4>3,000 Hecta</h4>
+                    <p>Vùng nguyên liệu tập trung được đầu tư bài bản, kiểm soát chất lượng từ gốc.</p>
+                </div>
+                <div class="cert-card">
+                    <h4>2,300 Nông Hộ</h4>
+                    <p>Mạng lưới liên kết chặt chẽ, hỗ trợ bao tiêu và đào tạo kỹ thuật canh tác bền vững.</p>
+                </div>
+                <div class="cert-card">
+                    <h4>Chứng Nhận Quốc Tế</h4>
+                    <p>Tuân thủ nghiêm ngặt chuẩn An Toàn Thực Phẩm (Food Safety Certificated) và Rainforest Alliance.</p>
+                </div>
+                <div class="cert-card">
+                    <h4>Dự Án Blue Sơn La</h4>
+                    <p>Chiến lược định vị sản phẩm Arabica cao cấp đặc sản, gia tăng giá trị kinh tế cho địa phương.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Liên hệ -->
+    <section id="lien-he" class="contact-section">
+        <div class="container">
+            <div class="contact-box">
+                <h2>HỢP TÁC VÀ PHÁT TRIỂN</h2>
+                <p>Hãy kết nối cùng chúng tôi để cùng lan tỏa hương vị Arabica hảo hạng nguyên chất ra khắp thế giới.</p>
+                <div class="contact-details">
+                    <div class="contact-item">
+                        <span class="label">Đơn vị quản lý vùng trồng</span>
+                        <span class="val">Công ty Cổ phần Phúc Sinh Sơn La</span>
+                    </div>
+                    <div class="contact-item">
+                        <span class="label">Website chính thức</span>
+                        <a href="http://www.phucsinhsonla.com" target="_blank">WWW.PHUCSINHSONLA.COM</a>
+                    </div>
+                    <div class="contact-item">
+                        <span class="label">Hotline hỗ trợ</span>
+                        <a href="tel:+84962247770">+84 962 247 770</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>© 2026 Sơn La Arabica Coffee. Tất cả quyền được bảo lưu.</p>
+            <p>Trang thông tin tư liệu tổng hợp phát triển bền vững Thủ phủ Arabica Việt Nam.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
