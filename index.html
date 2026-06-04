@@ -35,6 +35,7 @@
             background-color: var(--bg);
             color: var(--text);
             line-height: 1.6;
+            overflow-x: hidden; /* Ngăn chặn cuộn ngang rác trên mobile */
         }
 
         /* Đồng bộ Tiêu đề sang Montserrat, In đậm và Viết hoa */
@@ -153,7 +154,7 @@
         }
 
         .hero p.subtitle {
-            font-size: 2.4rem; /* Cỡ chữ lớn cho font thư pháp */
+            font-size: 2.4rem; 
             max-width: 800px;
             margin: 0 auto 30px auto;
             color: var(--primary-light);
@@ -427,10 +428,6 @@
             align-items: center;
         }
 
-        @media (max-width: 768px) {
-            .eco-grid { grid-template-columns: 1fr; }
-        }
-
         .eco-content h3 {
             font-size: 1.8rem;
             color: var(--secondary);
@@ -562,6 +559,85 @@
         footer p {
             margin-bottom: 5px;
         }
+
+        /* =========================================
+           MOBILE RESPONSIVE TỐI ƯU (MAX 768PX)
+           ========================================= */
+        @media (max-width: 768px) {
+            /* Header */
+            .navbar {
+                flex-direction: column;
+                gap: 15px;
+                padding: 20px 0;
+            }
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 12px 20px;
+            }
+            
+            /* Hero */
+            .hero {
+                padding: 80px 0 100px 0;
+            }
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            .hero p.subtitle {
+                font-size: 1.8rem; /* Thu nhỏ chữ thư pháp cho vừa điện thoại */
+                margin-bottom: 25px;
+                line-height: 1.3;
+            }
+            .slogan-box {
+                padding: 15px;
+            }
+            .slogan-box p {
+                font-size: 1.3rem;
+            }
+            
+            /* Sections */
+            section {
+                padding: 40px 0;
+            }
+            .section-header h2 {
+                font-size: 1.8rem;
+            }
+            
+            /* Stats */
+            .stats {
+                margin-top: -40px;
+                margin-bottom: 40px;
+            }
+            .stat-num {
+                font-size: 2.2rem;
+            }
+            
+            /* Matrix Grid & Ecosystem */
+            .matrix-grid, .cert-cards {
+                grid-template-columns: 1fr;
+            }
+            .eco-grid { 
+                grid-template-columns: 1fr; 
+                gap: 30px;
+            }
+            .eco-content h3 {
+                font-size: 1.5rem;
+            }
+            
+            /* Contact */
+            .contact-box {
+                padding: 40px 20px;
+            }
+            .contact-box h2 {
+                font-size: 1.6rem;
+            }
+            .contact-item span.val, .contact-item a {
+                font-size: 1.1rem;
+            }
+            .contact-details {
+                gap: 25px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -586,7 +662,6 @@
             <span class="hero-badge">Chỉ dẫn địa lý từ 2017</span>
             <h1>SƠN LA - THỦ PHỦ CÀ PHÊ ARABICA VIỆT NAM</h1>
             
-            <!-- Chuyển sang Slogan Thư Pháp chữ thường để dễ đọc -->
             <p class="subtitle slogan-text">Hương Sắc Cà Phê Arabica - Chào Mừng Công Dân Thủ Phủ Cà Phê Bền Vững</p>
             
             <div class="slogan-box">
